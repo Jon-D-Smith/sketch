@@ -1,11 +1,11 @@
 console.log('Hello')
 
-let rows = 16;
+let rows =8;
 
 window.addEventListener('load', (e) => {
 
   const board = document.getElementById('drawing-board');
-  
+  board.style.cssText =`grid-template-rows:repeat(${rows}, 1fr);grid-template-columns:repeat(${rows}, 1fr);   gap:0px 0px; `
   
    
     console.log("The page has loaded");
@@ -21,7 +21,11 @@ window.addEventListener('load', (e) => {
     
     cells.forEach((cell) => {
         cell.addEventListener('mouseover', () => {
-          cell.classList.add('painted')
+          let randomNum1 = Math.floor(Math.random() * 256);
+          let randomNum2 = Math.floor(Math.random() * 256);
+          let randomNum3 = Math.floor(Math.random() * 256);
+          // cell.classList.add('painted')
+          cell.style.cssText = `background-color: rgb(${randomNum1},${randomNum2},${randomNum3});`
         });
       });
 
