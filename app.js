@@ -1,6 +1,6 @@
 console.log('Hello')
 
-let rows =8;
+let rows =64;
 
 window.addEventListener('load', (e) => {
 
