@@ -1,5 +1,5 @@
 .container{
-    height: 1000px
+    height: 1000px;
     
 }
 
@@ -26,4 +26,15 @@
 
 .painted {
     background-color: black;
+}
+
+#options{
+    width:500px;
+    margin:20px auto;
+}
+
+#clearBtn {
+    width: 100px;
+    height: 50px;
+    
 }
