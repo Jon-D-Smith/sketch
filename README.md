@@ -5,8 +5,9 @@ Current Features:
 - Automatic grid using CSS grid and javascript
 - Random colors on mouseover
 - Board clear button
+- Option to set board size
+- Separate code chunks into functions
 
 Future features:
-- Option to set board size
 - Eraser option
 - improved CSS (Better background/color palette)
