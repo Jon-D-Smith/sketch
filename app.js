@@ -6,8 +6,9 @@ let cells = document.querySelectorAll('.cell');
 const board = document.getElementById('drawing-board');
 const clearBtn = document.getElementById("clearBtn");
 board.style.cssText =`grid-template-rows:repeat(${rows}, 1fr);grid-template-columns:repeat(${rows}, 1fr);   gap:0px 0px; `
-
-
+const tool = document.getElementById("tool");
+let toolVal = "pen";
+const helpText = document.getElementById("helpText");
 
     //Function to set the Grid Size
       const setGrid = function(){
@@ -20,18 +21,24 @@ board.style.cssText =`grid-template-rows:repeat(${rows}, 1fr);grid-template-colu
       }
       }
     //function to set the coloring functionality
-      const setColors = function(){
+      function setColors(e){
+        let randomNum1 = Math.floor(Math.random() * 256);
+          let randomNum2 = Math.floor(Math.random() * 256);
+          let randomNum3 = Math.floor(Math.random() * 256);
+          // cell.classList.add('painted')
+          this.style.cssText = `background-color: rgb(${randomNum1},${randomNum2},${randomNum3});`
+      } 
+
+      function setWhite(e){
+        this.style.cssText = `background-color: white;`
+      }
+      
+      function paint(){
             //Painting functionality
     cells = document.querySelectorAll('.cell');
     
       cells.forEach((cell) => {
-        cell.addEventListener('mouseover', () => {
-          let randomNum1 = Math.floor(Math.random() * 256);
-          let randomNum2 = Math.floor(Math.random() * 256);
-          let randomNum3 = Math.floor(Math.random() * 256);
-          // cell.classList.add('painted')
-          cell.style.cssText = `background-color: rgb(${randomNum1},${randomNum2},${randomNum3});`
-        });
+        cell.addEventListener('mouseover', setColors);
       });
     
     
@@ -43,11 +50,7 @@ board.style.cssText =`grid-template-rows:repeat(${rows}, 1fr);grid-template-colu
             parent.removeChild(parent.firstChild);
         }
     }
-      //Setting the initial grid on load
-      window.addEventListener('load',() => {
-        setGrid()
-        setColors()
-      })
+      
       //Change the board
       slider.addEventListener("mouseup", function(e){        
         rows = slider.value
@@ -55,7 +58,8 @@ board.style.cssText =`grid-template-rows:repeat(${rows}, 1fr);grid-template-colu
         setGrid()
         board.style.cssText =`grid-template-rows:repeat(${rows}, 1fr);grid-template-columns:repeat(${rows}, 1fr);   gap:0px 0px; `
         cells = document.querySelectorAll('.cell');
-        setColors()
+        tool.value = "pen";
+        paint() 
         })
         //Set Board Size based on slider value
       slider.oninput = function() {
@@ -67,3 +71,35 @@ board.style.cssText =`grid-template-rows:repeat(${rows}, 1fr);grid-template-colu
            cell.style.cssText = "";
          })
        })
+
+//Change coloring tool
+       tool.addEventListener("change", () => {
+  
+        toolVal = tool.value
+        if(toolVal == "pen"){
+          helpText.textContent = "Hover over cells to paint them"
+          cells.forEach((cell) =>{
+            cell.removeEventListener("click",setWhite)
+          },
+          cells.forEach((cell) =>{
+            cell.addEventListener("mouseover",setColors)
+            
+          })
+          )}
+        else{
+          helpText.textContent = "Click cells to reset them"
+          cells.forEach((cell) =>{
+            cell.removeEventListener("mouseover",setColors)
+          },
+          cells.forEach((cell) =>{
+            cell.addEventListener("click",setWhite)
+            
+          })
+          )}
+      })
+
+
+//Initial call on load
+        setGrid()
+        paint()
+        
