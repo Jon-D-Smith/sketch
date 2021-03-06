@@ -7,6 +7,8 @@ const board = document.getElementById('drawing-board');
 const clearBtn = document.getElementById("clearBtn");
 board.style.cssText =`grid-template-rows:repeat(${rows}, 1fr);grid-template-columns:repeat(${rows}, 1fr);   gap:0px 0px; `
 
+
+
     //Function to set the Grid Size
       const setGrid = function(){
         for(let i = 0; i < (rows*rows); i++){
@@ -22,7 +24,7 @@ board.style.cssText =`grid-template-rows:repeat(${rows}, 1fr);grid-template-colu
             //Painting functionality
     cells = document.querySelectorAll('.cell');
     
-    cells.forEach((cell) => {
+      cells.forEach((cell) => {
         cell.addEventListener('mouseover', () => {
           let randomNum1 = Math.floor(Math.random() * 256);
           let randomNum2 = Math.floor(Math.random() * 256);
@@ -31,6 +33,8 @@ board.style.cssText =`grid-template-rows:repeat(${rows}, 1fr);grid-template-colu
           cell.style.cssText = `background-color: rgb(${randomNum1},${randomNum2},${randomNum3});`
         });
       });
+    
+    
       }
 
       //Function to Remove Children from the Board 
