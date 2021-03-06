@@ -59,6 +59,7 @@ const helpText = document.getElementById("helpText");
         board.style.cssText =`grid-template-rows:repeat(${rows}, 1fr);grid-template-columns:repeat(${rows}, 1fr);   gap:0px 0px; `
         cells = document.querySelectorAll('.cell');
         tool.value = "pen";
+        helpText.textContent = "Hover over cells to paint them"
         paint() 
         })
         //Set Board Size based on slider value
