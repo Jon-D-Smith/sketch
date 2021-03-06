@@ -55,7 +55,7 @@ board.style.cssText =`grid-template-rows:repeat(${rows}, 1fr);grid-template-colu
         })
         //Set Board Size based on slider value
       slider.oninput = function() {
-        output.innerHTML = this.value;
+        output.innerHTML = this.value + " X " + this.value;
       }
        //Clear button functionality -- Reset the board      
        clearBtn.addEventListener("click", function(e){

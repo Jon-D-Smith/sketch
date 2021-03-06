@@ -1,3 +1,7 @@
+body{
+    background-color: #202020;
+}
+
 .container{
     height: 1000px;
     
@@ -15,6 +19,7 @@
     width: 500px;
     margin: 10px auto;
     text-align: center;
+    color:white;
 }
 
 #drawing-board {
@@ -31,6 +36,10 @@
 #options{
     width:500px;
     margin:20px auto;
+    color: white;
+    display:grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    gap: 5px 10px;
 }
 
 #clearBtn {
