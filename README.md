@@ -9,5 +9,4 @@ Current Features:
 - Separate code chunks into functions
 
 Future features:
-- Eraser option
 - improved CSS (Better background/color palette)
